@@ -8,11 +8,11 @@ skynet = (c, num, size, div) ->
     rc = do chan
     sum = 0
 
-    for i in [0..div]
+    for i in [1..div]
       subNum = num + i * size / div
       go -> skynet rc, subNum, size / div, div
 
-    for i in [0..div]
+    for i in [1..div]
       sum += yield rc
 
     yield put c, sum
